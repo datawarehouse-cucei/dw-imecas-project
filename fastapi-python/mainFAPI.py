@@ -9,7 +9,6 @@ origins = [
     "localhost:3000"
 ]
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -26,3 +25,11 @@ async def root():
 @app.get('/dw')
 def test_dw():    
     return {'message': 'Data WareHouse Project'}
+
+@app.get('/mysql-db-cleaning/')
+def mysql_db_cleaning():
+    return {'message': 'Limpieza de la Base de Datos MySQL Lista'}
+
+@app.get('/postgresql-db-cleaning/')
+def postgresql_db_cleaning():
+    return {'message': 'Limpieza de la Base de Datos Postgres Lista'}
