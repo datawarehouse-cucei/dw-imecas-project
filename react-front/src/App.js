@@ -35,14 +35,39 @@ function Component() {
     );
   }  
 }
+function TopBar() {
+  const stls = {
+    'background-color': 'gray',
+    'height': '50px'
+  };
+  return ( 
+    <div style={stls}>
+
+    </div>
+  );
+}
+
+// export default TopBar;
 
 function ExternalLinksPanel() {
+  const stls = {
+    'background-color': 'gray'
+    
+  };
+  const stlsL = {
+    color: 'white',
+    padding: '3em'
+  };
+  const stlsUL = {
+    'list-style': 'none'
+  };
+
   return ( 
-    <div>
-      <ul>
-        <li><a href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/transporte/accidentes.asp">Accidentes de Tráfico</a></li>
-        <li><a href="http://www.aire.cdmx.gob.mx/default.php?opc='aKBh'">Calidad del Aire</a></li>
-        <li><a href="https://www.ibm.com/docs/es/db2/11.1?topic=miner-data-mining-process"></a></li>
+    <div style={stls}>
+      <ul style={stlsUL}>
+        <li><a style={stlsL} href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/transporte/accidentes.asp">Accidentes de Tráfico</a></li>
+        <li><a style={stlsL} href="http://www.aire.cdmx.gob.mx/default.php?opc='aKBh'">Calidad del Aire</a></li>
+        <li><a style={stlsL} href="https://www.ibm.com/docs/es/db2/11.1?topic=miner-data-mining-process"></a></li>
       </ul>
     </div>
   );
@@ -76,8 +101,15 @@ function Control(props) {
 // export default Control;
 
 function ActionsPanel() {
+  const stls = {
+    // 'border-color': 'black',
+    width: '40%',
+    display: 'block',
+    'border-style': 'solid',
+  };
+
   return ( 
-    <div>
+    <div style={stls}>
       <h1>Acciones</h1>
       <Control label='Limpiar MySQL DB' task='mysql-db-cleaning'/>
       <Control label='Limpiar Postgres DB' task='postgresql-db-cleaning'/>
@@ -116,8 +148,13 @@ function CalidadDelAireContainer() {
 }
 
 function ResultsContainer() {
+  const stls = {
+    width: '50%',
+    display: 'block',
+    'border-style': 'solid'
+  };
   return ( 
-    <div>
+    <div style={stls}>
       <h1>Resultados</h1>
       <Chart
         chartType="ScatterChart"
@@ -136,6 +173,7 @@ function ResultsContainer() {
 function App() {
   return (
     <div className="App">
+      <TopBar />
       <h1>Proyecto de Data WareHouse</h1>
       <h1>Cantidad de Imecas en el aire</h1>
       {/* <Component /> */}
