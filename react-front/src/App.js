@@ -5,22 +5,24 @@ import React, { useState, useEffect } from 'react';
 
 function Component() {
   const [msg, setMsg] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/dw") // ⬅️ 1) llamada a la API, el resultado es una Promise
-      .then((response) => response.json()) // ⬅️ 2) cuando la petición finalice, transformamos la respuesta a JSON (response.json() también es una Promise)
+    fetch("http://localhost:8000/dw") 
+      .then((response) => response.json()) 
       .then((obj) => {
         console.log(obj);
         setMsg(obj.message);
       });
+      setIsLoading(false);
   }, []);
 
-  if(msg === null)
+  if(isLoading)
   {
     return(
       <div>
         <h1>Component</h1>
-        <p>Mensaje no cargado</p>      
+        <p>Cargando mensaje...</p>      
       </div>  
     );
   }else{
