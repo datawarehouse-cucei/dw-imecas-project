@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import { Chart } from "react-google-charts";
 
 
 function Component() {
@@ -35,16 +36,33 @@ function Component() {
   }  
 }
 
+function ExternalLinksPanel() {
+  return ( 
+    <div>
+      <ul>
+        <li><a href="https://www.inegi.org.mx/sistemas/olap/proyectos/bd/continuas/transporte/accidentes.asp">Accidentes de Tráfico</a></li>
+        <li><a href="http://www.aire.cdmx.gob.mx/default.php?opc='aKBh'">Calidad del Aire</a></li>
+        <li><a href="https://www.ibm.com/docs/es/db2/11.1?topic=miner-data-mining-process"></a></li>
+      </ul>
+    </div>
+  );
+}
+
+// export default ExternalLinksPanel;
+
 function Control(props) {
   const [result, setResult] = useState("No llevado a cabo aún");
   const [isExecuted, setIsExecuted] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:8000/"+ props.task)
-    .then((response) => response.json()) 
-    .then((obj) => {
-      setResult(obj.message);
-    });
+    if(isExecuted){
+      fetch("http://localhost:8000/"+ props.task)
+      .then((response) => response.json()) 
+      .then((obj) => {
+        setResult(obj.message);
+      });
+    }
+    
   }, [isExecuted]);
   
   return ( 
@@ -57,22 +75,79 @@ function Control(props) {
 
 // export default Control;
 
-function MainPanel() {
+function ActionsPanel() {
   return ( 
     <div>
+      <h1>Acciones</h1>
       <Control label='Limpiar MySQL DB' task='mysql-db-cleaning'/>
-      <Control label='Limpiar Postgres DB' task='posgresql-db-cleaning'/>
+      <Control label='Limpiar Postgres DB' task='postgresql-db-cleaning'/>
     </div>
    );
 }
 
-// export default MainPanel;
+// export default ActionsPanel;
+
+function AutosContainer() {
+  return ( 
+      <div>
+        <h1>Autos</h1>
+      </div>
+  );
+}
+
+// export default AutosContainer;
+
+function ZonasContainer() {
+  return ( 
+    <div>
+      <h1>Zonas</h1>
+    </div>    
+  );
+}
+
+// export default ZonasContainer;
+
+function CalidadDelAireContainer() {
+  return ( 
+      <div>
+        <h1>Calidad del Aire</h1>
+      </div>
+  );
+}
+
+function ResultsContainer() {
+  return ( 
+    <div>
+      <h1>Resultados</h1>
+      <Chart
+        chartType="ScatterChart"
+        data={[["Age", "Weight"], [4, 5.5], [8, 12]]}
+        width="100%"
+        height="400px"
+        legendToggle
+      />
+    </div>  
+  );
+}
+
+// export default ResultsContainer;
+// export default CalidadDelAireContainer;
 
 function App() {
   return (
     <div className="App">
-      <Component />
-      <MainPanel></MainPanel>
+      <h1>Proyecto de Data WareHouse</h1>
+      <h1>Cantidad de Imecas en el aire</h1>
+      {/* <Component /> */}
+      
+      <AutosContainer />
+      <ZonasContainer />
+      <CalidadDelAireContainer />
+      <ActionsPanel />
+      <ResultsContainer />
+      <ExternalLinksPanel />
+
+      
     </div>
   );
 }
