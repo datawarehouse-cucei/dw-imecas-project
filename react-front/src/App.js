@@ -79,6 +79,10 @@ function Control(props) {
   const [result, setResult] = useState("No llevado a cabo aún");
   const [isExecuted, setIsExecuted] = useState(false);
 
+  const stls = {
+    display: 'block'
+  };
+
   useEffect(() => {
     if(isExecuted){
       fetch("http://localhost:8000/"+ props.task)
@@ -91,7 +95,7 @@ function Control(props) {
   }, [isExecuted]);
   
   return ( 
-    <div>
+    <div style={stls}>
       <button onClick={()=>{setIsExecuted(true)}}>{props.label}</button>
       <p>{result}</p>
     </div>
@@ -99,25 +103,6 @@ function Control(props) {
 }
 
 // export default Control;
-
-function ActionsPanel() {
-  const stls = {
-    // 'border-color': 'black',
-    width: '40%',
-    display: 'block',
-    'border-style': 'solid',
-  };
-
-  return ( 
-    <div style={stls}>
-      <h1>Acciones</h1>
-      <Control label='Limpiar MySQL DB' task='mysql-db-cleaning'/>
-      <Control label='Limpiar Postgres DB' task='postgresql-db-cleaning'/>
-    </div>
-   );
-}
-
-// export default ActionsPanel;
 
 function AutosContainer() {
   return ( 
@@ -147,11 +132,37 @@ function CalidadDelAireContainer() {
   );
 }
 
+function ActionsPanel() {
+  const stls = {
+    // 'border-color': 'black',
+    width: '40%',
+    margin: 'auto',
+    // 'border-style': 'solid',
+    display: 'block'
+    
+  };
+
+  return ( 
+    <div style={stls}>
+      <h1>Acciones</h1>
+      <Control label='Limpiar MySQL DB' task='mysql-db-cleaning'/>
+      <Control label='Limpiar Postgres DB' task='postgresql-db-cleaning'/>
+      <Control label='Procesar Datos' task='process' />
+    </div>
+   );
+}
+
+// export default ActionsPanel;
+
+
+
 function ResultsContainer() {
   const stls = {
     width: '50%',
-    display: 'block',
-    'border-style': 'solid'
+    margin: 'auto',
+    // 'border-style': 'solid',
+    display: 'block'
+    
   };
   return ( 
     <div style={stls}>

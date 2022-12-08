@@ -33,3 +33,7 @@ def mysql_db_cleaning():
 @app.get('/postgresql-db-cleaning/')
 def postgresql_db_cleaning():
     return {'message': 'Limpieza de la Base de Datos Postgres Lista'}
+
+@app.get('/process')
+def process():
+    return {'message': 'Datos procesados'}
