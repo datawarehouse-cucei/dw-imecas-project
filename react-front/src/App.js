@@ -109,6 +109,13 @@ function AutosContainer() {
       <div>
         <h1>Autos</h1>
         <button>Autos</button>
+        <Chart
+          chartType="Bar"
+          data={[ ["33", "104", "13", "106", "54"], [4031, 2007, 1469, 1107, 1035]]}
+          width="90%"
+          height="400px"
+          legendToggle
+        />
       </div>
   );
 }
@@ -160,6 +167,8 @@ function ActionsPanel() {
 
 
 function ResultsContainer() {
+
+  
   const stls = {
     width: '60%',
     margin: 'auto',
@@ -171,8 +180,8 @@ function ResultsContainer() {
     <div style={stls}>
       <h1>Resultados</h1>
       <Chart
-        chartType="ScatterChart"
-        data={[["Age", "Weight"], [4, 5.5], [8, 12]]}
+        chartType="BarChart"
+        // data={[["Accidentes", "Contaminación"], [acc, ctmn], [acc, ctmn]]}
         width="100%"
         height="400px"
         legendToggle
