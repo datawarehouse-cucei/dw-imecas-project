@@ -108,6 +108,14 @@ function AutosContainer() {
   return ( 
       <div>
         <h1>Autos</h1>
+        <button>Autos</button>
+        <Chart
+          chartType="Bar"
+          data={[ ["33", "104", "13", "106", "54"], [4031, 2007, 1469, 1107, 1035]]}
+          width="90%"
+          height="400px"
+          legendToggle
+        />
       </div>
   );
 }
@@ -118,6 +126,7 @@ function ZonasContainer() {
   return ( 
     <div>
       <h1>Zonas</h1>
+      <button>Zonas</button>
     </div>    
   );
 }
@@ -128,6 +137,7 @@ function CalidadDelAireContainer() {
   return ( 
       <div>
         <h1>Calidad del Aire</h1>
+        <button>Calidad del Aire</button>
       </div>
   );
 }
@@ -135,7 +145,7 @@ function CalidadDelAireContainer() {
 function ActionsPanel() {
   const stls = {
     // 'border-color': 'black',
-    width: '40%',
+    width: '60%',
     margin: 'auto',
     // 'border-style': 'solid',
     display: 'block'
@@ -157,8 +167,10 @@ function ActionsPanel() {
 
 
 function ResultsContainer() {
+
+  
   const stls = {
-    width: '50%',
+    width: '60%',
     margin: 'auto',
     // 'border-style': 'solid',
     display: 'block'
@@ -168,8 +180,8 @@ function ResultsContainer() {
     <div style={stls}>
       <h1>Resultados</h1>
       <Chart
-        chartType="ScatterChart"
-        data={[["Age", "Weight"], [4, 5.5], [8, 12]]}
+        chartType="BarChart"
+        // data={[["Accidentes", "Contaminación"], [acc, ctmn], [acc, ctmn]]}
         width="100%"
         height="400px"
         legendToggle
