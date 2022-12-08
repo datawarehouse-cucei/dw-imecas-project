@@ -108,6 +108,7 @@ function AutosContainer() {
   return ( 
       <div>
         <h1>Autos</h1>
+        <button>Autos</button>
       </div>
   );
 }
@@ -118,6 +119,7 @@ function ZonasContainer() {
   return ( 
     <div>
       <h1>Zonas</h1>
+      <button>Zonas</button>
     </div>    
   );
 }
@@ -128,6 +130,7 @@ function CalidadDelAireContainer() {
   return ( 
       <div>
         <h1>Calidad del Aire</h1>
+        <button>Calidad del Aire</button>
       </div>
   );
 }
@@ -135,7 +138,7 @@ function CalidadDelAireContainer() {
 function ActionsPanel() {
   const stls = {
     // 'border-color': 'black',
-    width: '40%',
+    width: '60%',
     margin: 'auto',
     // 'border-style': 'solid',
     display: 'block'
@@ -158,7 +161,7 @@ function ActionsPanel() {
 
 function ResultsContainer() {
   const stls = {
-    width: '50%',
+    width: '60%',
     margin: 'auto',
     // 'border-style': 'solid',
     display: 'block'
