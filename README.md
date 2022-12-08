@@ -14,5 +14,5 @@ En una carpeta se ecuentra el backend y en otra el frontend.
 
 Para consultar los scripts de la limpieza de datos, dirigirse aquí: 
 (consultar la rama master, no main)
-- [https://github.com/wendyjud/dataware-house]
+- [Repositorio con otros scripts (Wendy)](https://github.com/wendyjud/dataware-house)
 
